@@ -30,7 +30,7 @@ public class Estudiante{
 	}
 
 	public void cumplirAnyos(){
-		this.edad = edad + 1;
+		edad = edad + 1;
 	}
 
 

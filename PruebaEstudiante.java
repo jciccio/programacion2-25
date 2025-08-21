@@ -5,6 +5,7 @@ public class PruebaEstudiante{
 		estudiante1.setCarrera("Computación");
 		estudiante1.setEdad(19);
 		estudiante1.saludar();
+		
 
 		Estudiante estudiante2 = new Estudiante();
 		estudiante2.bautizar("Maria");
