@@ -3,9 +3,11 @@ import javax.swing.JOptionPane;
 public class DatosUsuario2{
 	public static void main (String [] args){
 
+		JOptionPane.showMessageDialog(null, "Texto1" , "Texto2", JOptionPane.WARNING_MESSAGE);
+
 		String valor1String = JOptionPane.showInputDialog("Digite un numero");
 
-		
+
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Que dia es hoy?");
 		String loQueDigitoElUsuario = scanner.nextLine();

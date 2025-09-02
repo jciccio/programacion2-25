@@ -8,16 +8,16 @@ public class InterfazConsola{
 		scanner = new Scanner(System.in);
 	}
 
-	public int solicitarNumeroEntero(){
-		System.out.println("Digite un numero");
+	public int solicitarNumeroEntero(String titulo){
+		System.out.println(titulo);
 		String numeroUsuario = scanner.nextLine();
 
 		int numero = 0;
 		try{
 			numero = Integer.parseInt(numeroUsuario);
 		}
-		catch(NumberFormatException e){
-			System.err.println("El valor digitado no es un numero");
+		catch(NumberFormatException objetoExcepcion){
+			System.err.println("El valor digitado no es un numero " + objetoExcepcion);
 		}
 		return numero;
 	}
