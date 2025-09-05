@@ -160,3 +160,184 @@ public double solicitarNumeroReal(String mensaje){
     return numero;
   }
 ```
+
+### Sobrecarga de métodos y constructores
+
+La firma de un método está compuesta por su nombre y los tipos de datos de los parámetros que recibe (en orden).
+
+La sobrecarga consiste en tener métodos con el mismo nombre pero con distintos parámetros. Java utiliza la cantidad de parámetros, junto con sus tipos para determinar cuál es el método correcto que debe ser invocado.
+
+De igual forma, en Java se pueden sobrecargar los constructores de una clase (permitiendo tener varios). Esto se llama sobrecarga de constructores.
+
+Ejemplos vistos en clase:
+
+Sobrecarga de métodos (clase CalculadoraV2.java)
+```java
+   public double multiplicar(double valor1, double valor2){
+      double resultado = valor2 * valor1;
+      return resultado;
+   }
+
+   public int multiplicar(int valor1, int valor2){
+      return valor1*valor2;
+   }
+
+   public double multiplicar(double valor1, int valor2){
+      return valor1*valor2;
+   }
+
+   public double multiplicar(int valor1, int valor2, int valor3){
+      return valor1*valor2*valor3;
+   }
+```
+
+Sobrecarga de constructores (clase Carta.java)
+
+```java
+public Carta() {
+   palo = "Diamantes";
+   numero = 3;
+}
+
+public Carta(int numero, String palo){
+   this.numero = numero;
+   this.palo = palo;
+}
+```
+
+
+### Estructuras de control (__if__, __if/else__)
+
+  * Operadores relacionales (and: __&&__, or: __||__, xor: __^__, not: __!__)
+  
+  * Operadores lógicos (__>__, __>=__,__<__,__<=__,__==__)
+  
+  * Orden precedencia:
+  
+  | Orden        | Tipo           | Operador|
+  | ------------- |:-------------:| :-------------:|
+  |1|Posfijos |( )|
+  |2|Multiplicativos |*, /, %, //|
+  |3|Aditivos |+,-|
+  |4|Unarios |x++, x--|
+  |5|Relacionales |>, <, <=, >=|
+  |6|Igualdad |==|
+  |7|AND | and|
+  |8|OR | or|
+  |9|Asignación |=, +=, -=, *=, /=,%= …|
+
+
+#### Estructura if 
+
+Ejemplo tomado de la clase carta, convierte un número entero que representa una carta en una hilera de caracters con su respectivo valor.
+```java
+public String convertirNumeroCartaIf(){
+   String valorCarta = "";
+   if (numero == 1){
+      valorCarta = "As";
+   }
+   else {
+      if (numero == 11){
+         valorCarta = "J";
+      }
+      else{
+         if (numero == 12){
+            valorCarta = "Q";
+         }
+         else{
+            if (numero == 13){
+               valorCarta = "K";
+            }
+            else{
+               valorCarta += numero;
+            }   
+         } 
+      } 
+   }
+   return valorCarta;
+}
+```
+
+#### Estructura switch
+
+Ejemplo anterior codificado utilizando la estructura switch
+
+```java
+// Retorne J Q K As o el numero como String
+public String convertirNumeroCarta(){
+   String valorCarta = "";
+   switch(numero){
+      case 11:
+         valorCarta = "J";
+      break;
+      case 12:
+         valorCarta = "Q";
+      break;
+      case 13:
+         valorCarta = "K";
+      break;
+      case 1:
+         valorCarta = "As";
+      break;
+      default:
+         valorCarta += this.numero;
+   }
+   return valorCarta;
+}
+```
+
+
+### Estructuras de repetición
+
+![alt text](screenshots/ciclos.jpg "Ejemplo gráfico visto en clases")
+
+### Ciclo while
+
+Ejemplo tomado de la clase Matemáticas
+
+```java
+public double calcularPromedioWhile(){
+  double suma = 0;
+  int n = 0; // iteraciones que se harán y servirá como condición de parada
+
+  while(n < 5){
+    suma += interfazUsuario.solicitarNumeroEntero("Digite un numero (while)");
+    n++; // cambio de condición
+  }
+  return suma/5;
+}
+```
+
+### Ciclo do - while
+
+Ejemplo tomado de la clase Matemáticas
+
+
+```java
+public double calcularPromedioDoWhile(){
+  double suma = 0;
+  int n = 0;
+
+  do {
+    suma += interfazUsuario.solicitarNumeroEntero("Digite un numero (do-while)");
+    n++;
+  }while(n < 5);
+  return suma/5;
+}
+```
+### Ciclo for
+
+Ejemplo tomado de la clase Matemáticas
+
+
+```java
+public double calcularPromedioFor(){
+  double suma = 0;
+
+  for (int  n = 0 ; n < 5 ; n++){
+    suma += interfazUsuario.solicitarNumeroEntero("Digite un numero (for)");
+  }
+
+  return suma /5;
+}
+```
