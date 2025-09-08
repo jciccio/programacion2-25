@@ -18,4 +18,16 @@ public class Calculadora{
 		return v1+v2;
 	}
 
+	public int sumar(int x, int y){
+		return x+y;
+	}
+
+	public double sumar(int x, double y){
+		return x+y;
+	}
+
+	public int sumar (int x, int y, int z){
+		return x+y+z;
+	}
+
 }
