@@ -1,0 +1,27 @@
+var annotated_dup =
+[
+    [ "AleatorioConsulta", "class_aleatorio_consulta.html", null ],
+    [ "ArregloPrueba", "class_arreglo_prueba.html", null ],
+    [ "Bisiesto", "class_bisiesto.html", null ],
+    [ "Bombillo", "class_bombillo.html", null ],
+    [ "Calculadora", "class_calculadora.html", null ],
+    [ "Carta", "class_carta.html", null ],
+    [ "CartaDoxygen", "class_carta_doxygen.html", "class_carta_doxygen" ],
+    [ "Ciclos", "class_ciclos.html", null ],
+    [ "DatosUsuario", "class_datos_usuario.html", null ],
+    [ "DatosUsuario2", "class_datos_usuario2.html", null ],
+    [ "EstructuraIf", "class_estructura_if.html", null ],
+    [ "EstructuraSwitch", "class_estructura_switch.html", null ],
+    [ "Estudiante", "class_estudiante.html", null ],
+    [ "HolaMundo", "class_hola_mundo.html", null ],
+    [ "InterfazConsola", "class_interfaz_consola.html", null ],
+    [ "Libro", "class_libro.html", null ],
+    [ "Matrices", "class_matrices.html", null ],
+    [ "Mazo", "class_mazo.html", null ],
+    [ "PasoCopiaYReferencia", "class_paso_copia_y_referencia.html", null ],
+    [ "PruebaCalculadora", "class_prueba_calculadora.html", null ],
+    [ "PruebaEstudiante", "class_prueba_estudiante.html", null ],
+    [ "PruebaLibro", "class_prueba_libro.html", null ],
+    [ "PruebaSeno", "class_prueba_seno.html", null ],
+    [ "Quiz2", "class_quiz2.html", null ]
+];
