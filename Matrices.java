@@ -34,8 +34,6 @@ public class Matrices{
 			System.out.println();
 		}
 	}
-
-
 	
 	public static void main (String [] args){
 		char letra = 'z';
