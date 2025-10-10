@@ -81,6 +81,7 @@ public class Calculadora{
 		return resultado;
 	}
 
+	// Ejemplo numeros primos
 	public boolean esPrimo(int numero){
 		boolean primo = true;
 		int contador = 2;
