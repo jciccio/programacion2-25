@@ -80,4 +80,35 @@ public class Calculadora{
 		}
 		return resultado;
 	}
+
+	public boolean esPrimo(int numero){
+		boolean primo = true;
+		int contador = 2;
+		while(contador <= numero/2 && primo){
+			if(numero%contador == 0){
+				primo = false;
+			}
+			contador++;
+		}
+		return primo;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
