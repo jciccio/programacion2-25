@@ -24,7 +24,7 @@ public class Mazo {
 
 	public void imprimir(){
 		for(int i = 0 ; i < carta.length; i++){
-			System.out.println(carta[i]);
+			System.out.println(carta[i].toString());
 		}
 	}
 
