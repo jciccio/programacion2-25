@@ -36,6 +36,18 @@ public class Recursividad{
 		return resultado;
 	}
 
+
+	public void calcularHanoi(int n, int origen, int intermedio, int destino){
+		if(n == 1){ // Caso trivial o base
+			System.out.println("Mover " + n + " de " + origen + " a "+ destino);
+		}
+		else{ // Casos recursivos
+			calcularHanoi(n-1, origen, destino, intermedio);
+			System.out.println("Mover " + n + " de " + origen + " a "+ destino);
+			calcularHanoi(n-1,intermedio, origen, destino);
+		}
+	}
+
 	public static void main (String [] args){
 		Recursividad r = new Recursividad();
 		System.out.println("El resultado de la sumatoria de 5 es: " + r.calcularSumatoria(5));
@@ -46,5 +58,9 @@ public class Recursividad{
 		InterfazConsola interfaz = new InterfazConsola();
 		int numero = interfaz.solicitarNumeroEntero("Digite el valor para calcular fibonacci");
 		System.out.println("El fibonacci de " + numero + " es " + r.calcularFibonacci(numero));
+	
+
+
+		r.calcularHanoi(2,1,2,3);
 	}
 }
