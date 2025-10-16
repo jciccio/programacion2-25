@@ -22,6 +22,8 @@ public class Recursividad{
 		return suma;
 	}
 
+
+
 	public int calcularFibonacci(int n){
 		int resultado = 0;
 		if(n == 0){
@@ -35,7 +37,41 @@ public class Recursividad{
 		}
 		return resultado;
 	}
+	// f (0) = 0
+	// f (1) = 1
+	// f (n-1) + f(n-2)
+	// 0 1 1 2 3 5 8 13 21...
+	// 0 1 2 3 4 5 6 7  8.... 
+	// []
 
+	public int calcularFibonacciArreglo(int n){
+		int [] numerosFibonacci = new int [n+1];
+		for(int i = 0 ; i < numerosFibonacci.length ; i++){
+			numerosFibonacci[i] = -1;
+		}//[-1,-1,-1,-1]
+		return calcularFibonacciOptimizado(n, numerosFibonacci);
+	}
+
+	private int calcularFibonacciOptimizado(int n, int [] valores){
+		int resultado = 0;
+		if(valores[n] != -1){
+			resultado = valores[n];
+		}
+		else if(n == 0){
+			resultado = 0;
+			valores[n] = resultado;
+		}
+		else if (n == 1){
+			resultado = 1;
+			valores[n] = resultado;
+		}
+		else if (n > 1){
+			resultado = calcularFibonacciOptimizado(n-1, valores) + 
+						calcularFibonacciOptimizado(n-2, valores);
+			valores[n] = resultado;
+		}
+		return resultado;
+	}
 
 	public void calcularHanoi(int n, int origen, int intermedio, int destino){
 		if(n == 1){ // Caso trivial o base
