@@ -1,0 +1,4 @@
+Esto es una línea del archivo
+Esto es otra línea del archivo
+Otra línea más
+Hoy es 20 de Octubre
