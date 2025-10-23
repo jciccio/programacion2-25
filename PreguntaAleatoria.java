@@ -8,7 +8,6 @@ public class PreguntaAleatoria{
 	private String [] expresionOperaciones;
 	private String [] opciones;
 
-
 	public PreguntaAleatoria(){
 		opciones = new String[4];
 		operacion = (int)(Math.random()*4);
@@ -68,7 +67,6 @@ public class PreguntaAleatoria{
 		resultado = operando1 - operando2;
 	}
 
-
 	public void generarDivision(){
 		int numero1 = (int)(Math.random()*10+1); // numeros entre 1 y 10
 		int numero2 = (int)(Math.random()*10+1); // numeros entre 1 y 10
@@ -84,8 +82,6 @@ public class PreguntaAleatoria{
 		expresionOperaciones[operacion] +" " + operando2 + "es:";
 	}
 
-
-
 	public boolean verificarSiEsCorrecto(int opcionDigitada){
 		String opcionArreglo = opcionDigitada  - 1;
 		boolean correcta = false;
@@ -96,24 +92,5 @@ public class PreguntaAleatoria{
 		}	
 		return correcta;
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
