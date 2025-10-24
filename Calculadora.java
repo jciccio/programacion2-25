@@ -1,5 +1,5 @@
 public class Calculadora{
-	
+	public static final double PI = 3.14159;
 	public int elevarAlCuadrado(int numero){
 		int resultado = numero * numero;
 		return resultado;
@@ -29,7 +29,6 @@ public class Calculadora{
 	public int sumar (int x, int y, int z){
 		return x+y+z;
 	}
-
 
 	// Para calcular el seno son los siguientes métodos:
 	public int calcularFactorial (int n){
