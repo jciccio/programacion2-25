@@ -1,7 +1,13 @@
 public class BusquedaBinaria{
 	
 
-	public int busquedaBinaria (int[] arreglo, int valor, int limInf, int limSup){
+	public int busquedaBinaria(int[] arreglo, int valor){
+		OrdenamientoArreglo ordenar = new OrdenamientoArreglo();
+		return busquedaBinaria(ordenar.ordenarSeleccion(arreglo),valor,0,arreglo.length-1);
+	}
+
+
+	private int busquedaBinaria (int[] arreglo, int valor, int limInf, int limSup){
 		int resultado = -1;
 		int celda = (limInf + limSup)/2;
 		if(limInf <= limSup && celda >=0 && celda < arreglo.length){
