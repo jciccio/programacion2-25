@@ -133,6 +133,24 @@ public class ListaSimplementeEnlazada{
 		return contenido;
 	}
 
+	// Recibimos un número y vamos a ver cuántas veces se encuentra dentro del método
+	// Como queremos que sea recursivo, necesitamos algo, en los parámetros que me permita
+	// romper la recursividad, ese algo va a ser el nodo actual que vamos revisando
+	private int contarApariciones(int buscado, Nodo nodoActual){
+		int veces = 0; // cuantas veces lo hemos encontrado?
+		if(nodoActual != null){ // Si el nodo actual existe queremos iterar
+			if(nodoActual.elemento == buscado){
+				veces = 1;
+			}
+			veces = veces + contarApariciones(buscado, nodoActual.siguiente);
+		}
+		return veces;
+	}
+
+	public int contarApariciones(int buscado){
+		return contarApariciones(buscado, this.primero);
+	}
+
 	public static void main (String [] args ){
 		ListaSimplementeEnlazada lse = new ListaSimplementeEnlazada();
 		lse.agregarAlInicio(1);
@@ -153,6 +171,13 @@ public class ListaSimplementeEnlazada{
 		lse.borrar(4);
 		lse.borrar(0);
 		System.out.println(lse);
+
+		lse.agregarAlFinal(30);
+		lse.agregarAlFinal(10);
+		lse.agregarAlFinal(10);
+		System.out.println(lse);
+
+		System.out.println(lse.contarApariciones(10));
 	}
 
 }

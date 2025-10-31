@@ -60,11 +60,32 @@ public class Buscaminas {
 	}
 
 	public boolean realizarMovimiento(int f, int c, boolean perdio){
-		// Modificar el tablero del usuario segun lo que recibamos de posicion en la matriz
-		// Usen como auxiliar la matriz (tablero) que contiene los datos relevantes
-		// Si es una mina cambien por una M la matriz del usuario
-		// Modiquen el to String para imprimir la matriz del usuario
-		return false;
+		if(f >= 0 && c >= 0 && 
+		   f < tablero.length && 
+		   c < tablero[f].length){ // Casos base o triviales
+			if(tablero[f][c] == -1){ // Caemos en una mina
+				perdio = true;
+				tableroUsuario[f][c] = "M";
+			}
+			else if(tablero[f][c] > 0){  // caso trivial
+				tableroUsuario[f][c] = ""+tablero[f][c];
+				perdio = false;
+			}
+			else if(tableroUsuario[f][c] == "_"){
+				tableroUsuario[f][c] = "" + tablero[f][c];
+				int [] cF = {-1,-1,-1,0,0,1,1,1};
+				int [] cC = {-1,0,1,-1,1,-1,0,1};
+				int contador = 0;
+				while (contador < cF.length){
+					int nuevaF = f + cF[contador];
+					int nuevaC = c + cC[contador];				
+					perdio = realizarMovimiento(nuevaF, nuevaC, perdio);
+					contador += 1;
+				}
+			}
+
+		}
+		return perdio;
 	}
 
 	public void llenarTablero(){
