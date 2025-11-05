@@ -1,6 +1,6 @@
 public class ListaSimplementeEnlazada{
 	
-	private Nodo primero; // Este
+	private Nodo primero; 
 
 
 	private class Nodo{
