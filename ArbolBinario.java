@@ -15,7 +15,7 @@ public class ArbolBinario{
 			return "Elemento: " + elemento;
 		}
 	}
-
+	// Metodo accesible desde la instancia
 	public Nodo insertar(int elemento){
 		return insertar(raiz, elemento);
 	}
@@ -43,6 +43,70 @@ public class ArbolBinario{
 			}
 		}
 		return nuevo;
+	}
+
+	// Metodo accesible desde la instancia
+	public Nodo borrar(int elemento){
+		return borrar(elemento, raiz);
+	}
+
+	private Nodo borrar(int elemento, Nodo nodo){
+		Nodo retorno = null;
+		if(nodo != null){
+			if(nodo.elemento > elemento){
+				// Nos movemos hacia la izquierda
+				nodo.hijoIzq = borrar(elemento, nodo.hijoIzq);
+			}
+			else if (nodo.elemento < elemento){
+				// Nos movemos hacia la derecha
+				nodo.hijoDer = borrar(elemento, nodo.hijoDer);
+			}
+			else {
+				// Encontramos el nodo que queremos borrar :)
+				if(nodo.hijoIzq == null){
+					nodo = nodo.hijoDer;
+				}
+				else if (nodo.hijoDer == null){
+					nodo = nodo.hijoIzq;
+				}
+				else{ // Tiene dos hijos
+					Nodo menor  = buscarMenor(nodo.hijoDer);
+					nodo.elemento = menor.elemento;
+					nodo.hijoDer = borrar(nodo.elemento, nodo.hijoDer);
+				}
+			}
+			retorno = nodo;
+		}
+		return retorno;
+	}
+
+	public Nodo buscar(int elemento){
+		return buscar(elemento, raiz);
+	}
+
+	private Nodo buscar(int elemento, Nodo nodo){
+		Nodo buscado = null;
+		if(nodo != null){
+			if(nodo.elemento > elemento){
+				// Nos movemos hacia la izquierda
+				buscado = buscar(elemento, nodo.hijoIzq);
+			}
+			else if(nodo.elemento < elemento){
+				// Nos movemos hacia la derecha
+				buscado = buscar(elemento, nodo.hijoDer);
+			}
+			else{
+				buscado = nodo;
+			}
+		}
+		return buscado;
+	}
+
+	public Nodo buscarMenor(Nodo nodoActual){
+		while(nodoActual.hijoIzq != null){
+			nodoActual = nodoActual.hijoIzq;
+		}
+		return nodoActual;
 	}
 
 	// Existen varias (3) formas de imprimir un árbol binario
@@ -74,6 +138,9 @@ public class ArbolBinario{
 		arbol.insertar(2);
 		arbol.insertar(3);
 		arbol.insertar(6);
+		arbol.imprimir();
+		System.out.println("- - - -");
+		arbol.borrar(10);
 		arbol.imprimir();
 	}
 
