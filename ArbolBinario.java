@@ -126,6 +126,50 @@ public class ArbolBinario{
 	}
 
 
+	public int length(){
+		return length(raiz);
+	}
+
+	
+
+	public int lengthContador(){
+		return lengthContador(raiz, 0);
+	}
+
+	private int lengthContador(Nodo nodo, int contador){
+		if(nodo != null){
+			contador = lengthContador(nodo.hijoIzq, contador + 1);
+			contador = lengthContador(nodo.hijoDer, contador);
+		}
+		return contador;
+	}
+
+	private int length(Nodo nodo){
+		int contador = 0;
+		if(nodo != null){
+			contador += length(nodo.hijoIzq);
+			contador += length(nodo.hijoDer);
+			contador++;
+		}
+		return contador;
+	}
+
+	private int getProfundidad(){
+		return getProfundidad(raiz);
+	}
+	private int getProfundidad(Nodo nodo){
+		int profundidadIzq = 0;
+		int profundidadDer = 0;
+		if(nodo != null){
+			if(nodo.hijoIzq != null)
+				profundidadIzq = getProfundidad(nodo.hijoIzq);
+			if(nodo.hijoDer != null)
+				profundidadDer = getProfundidad(nodo.hijoDer);
+		}
+		return ((profundidadIzq > profundidadDer) ? 
+			profundidadIzq : profundidadDer) + 1; 
+	}
+
 	public static void main (String [] args){
 		ArbolBinario arbol = new ArbolBinario();
 		arbol.insertar(20);
@@ -142,6 +186,10 @@ public class ArbolBinario{
 		System.out.println("- - - -");
 		arbol.borrar(10);
 		arbol.imprimir();
+
+		System.out.println("El metodo length retorna: "+ arbol.length());
+		System.out.println("El metodo lengthContador retorna: " + arbol.lengthContador());
+		System.out.println("La profundidad del arbol es: " + arbol.getProfundidad());
 	}
 
 

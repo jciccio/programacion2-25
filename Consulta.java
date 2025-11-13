@@ -14,7 +14,7 @@ public class Consulta{
 
 	public int calcularAlertas(int [] arregloMinutos, int umbralAlerta, int minutosAnteriores, int i){
 		int alertas = 0;
-		if(i + umbralAlerta - 1 <= arregloMinutos.length){
+		if(i + minutosAnteriores - 1 <= arregloMinutos.length){
 			int suma = sumaArreglo(arregloMinutos, i, 0, minutosAnteriores);
 			suma /= minutosAnteriores;
 			if(suma > umbralAlerta){
