@@ -19,6 +19,7 @@ public class OrdenamientoArreglo{
 
 	public int [] ordenarSeleccion (int [] arregloParametro){
 		int [] arreglo = clonarArreglo(arregloParametro);
+		//int[] arreglo = arregloParametro;
 		for(int i = 0 ; i < arreglo.length; i++){
 			for(int j = i+1; j < arreglo.length; j++){
 				if(arreglo[i] > arreglo[j]){
@@ -41,6 +42,21 @@ public class OrdenamientoArreglo{
 					String temporal = arreglo[i];
 					arreglo[i] = arreglo[j];
 					arreglo[j] = temporal;
+				}
+			}
+		}
+		return arreglo;
+	}
+
+	public int[] ordenarBurbuja(int[] arregloParametro){
+		int [] arreglo = clonarArreglo(arregloParametro);
+		for(int i = 0; i < arreglo.length; i++){
+			for(int j = arreglo.length-1; j > i; j--){
+				if(arreglo[j-1] > arreglo[j]){
+					// Intercambio elementos
+					int temporal = arreglo[j];
+					arreglo[j] = arreglo[j-1];
+					arreglo[j-1] = temporal;
 				}
 			}
 		}
@@ -71,6 +87,8 @@ public class OrdenamientoArreglo{
 		oa.imprimir(arreglo);
 		oa.imprimir(ordenado);
 
+		ordenado = oa.ordenarBurbuja(arreglo);
+		oa.imprimir(ordenado);
 
 		String [] nombres = {"Juan", "Ana", "Maria", "Carlos", "Alejandro", "Andrea", "Brandon", "Gabriel"};
 	
