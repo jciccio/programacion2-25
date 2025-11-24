@@ -84,6 +84,16 @@ public class Recursividad{
 		}
 	}
 
+	public void llamadosRecursivos(String [] arreglo, int indice, boolean agregar){
+		if(indice < arreglo.length){
+			
+			System.out.println("Estamos viendo "+ arreglo[indice] + " la agregamos? " + agregar);
+			llamadosRecursivos(arreglo, indice+1, true);
+			llamadosRecursivos(arreglo, indice+1, false);
+			
+		}
+	}
+
 	public static void main (String [] args){
 		Recursividad r = new Recursividad();
 		System.out.println("El resultado de la sumatoria de 5 es: " + r.calcularSumatoria(5));
@@ -98,5 +108,8 @@ public class Recursividad{
 
 
 		r.calcularHanoi(2,1,2,3);
+
+		String [] cosas = {"Computadora", "Cuaderno", "Lapicero", "Audifonos", "Botella"};
+		r.llamadosRecursivos(cosas, 0 , true);
 	}
 }
